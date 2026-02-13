@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -9,6 +9,7 @@ import { ScreenshotPlaceholderComponent } from '../../components/screenshot-plac
 import { SectionHeaderComponent } from '../../components/section-header/section-header.component';
 import { ScrollAnimateDirective } from '../../directives/scroll-animate.directive';
 import { SeoService } from '../../services/seo.service';
+import { SchemaService } from '../../services/schema.service';
 import { SEO_META } from '../../data/seo-meta.data';
 import { FEATURES } from '../../data/features.data';
 import { JOURNEY_STEPS } from '../../data/journey-steps.data';
@@ -30,7 +31,7 @@ import { JOURNEY_STEPS } from '../../data/journey-steps.data';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit, OnDestroy {
   topFeatures = FEATURES.slice(0, 6);
   journeySteps = JOURNEY_STEPS;
 
@@ -46,9 +47,19 @@ export class LandingComponent implements OnInit {
     { value: '85%', label: 'Less documentation time with AI Medical Scribe' },
   ];
 
-  constructor(private seoService: SeoService) {}
+  constructor(
+    private seoService: SeoService,
+    private schemaService: SchemaService
+  ) {}
 
   ngOnInit(): void {
     this.seoService.updateMetaTags(SEO_META['home']);
+    this.schemaService.setBreadcrumbSchema([
+      { name: 'Home' },
+    ]);
+  }
+
+  ngOnDestroy(): void {
+    this.schemaService.clearDynamicSchemas();
   }
 }

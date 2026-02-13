@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
 import { ScreenshotPlaceholderComponent } from '../../components/screenshot-placeholder/screenshot-placeholder.component';
 import { SectionHeaderComponent } from '../../components/section-header/section-header.component';
 import { ScrollAnimateDirective } from '../../directives/scroll-animate.directive';
+import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
+import { SchemaService } from '../../services/schema.service';
 import { SEO_META } from '../../data/seo-meta.data';
 
 @Component({
@@ -13,8 +16,10 @@ import { SEO_META } from '../../data/seo-meta.data';
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     MatIconModule,
     CtaBannerComponent,
+    BreadcrumbComponent,
     ScreenshotPlaceholderComponent,
     SectionHeaderComponent,
     ScrollAnimateDirective
@@ -22,7 +27,7 @@ import { SEO_META } from '../../data/seo-meta.data';
   templateUrl: './patient-portal.component.html',
   styleUrls: ['./patient-portal.component.scss']
 })
-export class PatientPortalComponent implements OnInit {
+export class PatientPortalComponent implements OnInit, OnDestroy {
   portalFeatures = [
     {
       icon: 'calendar_month',
@@ -59,9 +64,20 @@ export class PatientPortalComponent implements OnInit {
     { icon: 'forum', text: 'Secure messaging reduces unnecessary office visits' },
   ];
 
-  constructor(private seoService: SeoService) {}
+  constructor(
+    private seoService: SeoService,
+    private schemaService: SchemaService
+  ) {}
 
   ngOnInit(): void {
     this.seoService.updateMetaTags(SEO_META['patientPortal']);
+    this.schemaService.setBreadcrumbSchema([
+      { name: 'Home', url: 'https://enablesleep.com' },
+      { name: 'Patient Portal' },
+    ]);
+  }
+
+  ngOnDestroy(): void {
+    this.schemaService.clearDynamicSchemas();
   }
 }

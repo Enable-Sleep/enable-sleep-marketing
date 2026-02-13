@@ -1,7 +1,8 @@
 <!-- Hero -->
 <section class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-20 px-4">
   <div class="max-w-4xl mx-auto text-center">
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-6">A Better Experience for Your Patients</h1>
+    <app-breadcrumb [items]="[{label: 'Home', path: '/'}, {label: 'Patient Portal'}]" [light]="true"></app-breadcrumb>
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Dental Sleep Medicine Patient Portal</h1>
     <p class="text-xl text-gray-300 max-w-2xl mx-auto">
       A modern patient portal that works on any device. Scheduling, forms, messaging, and progress tracking in one place.
     </p>
@@ -78,6 +79,67 @@
         <mat-icon class="text-accent-green flex-shrink-0">{{ benefit.icon }}</mat-icon>
         <span class="text-gray-700">{{ benefit.text }}</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Patient Engagement -->
+<section class="py-16 px-4 bg-gray-50" appScrollAnimate>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Why Patient Engagement Matters in Dental Sleep Medicine</h2>
+    <div class="space-y-4 text-lg text-gray-700 leading-relaxed">
+      <p>
+        Oral appliance therapy requires more patient touchpoints than most dental procedures. Between screening questionnaires, sleep test coordination, device fittings, and compliance follow-ups, patients who disengage midway represent lost clinical outcomes and lost revenue. The Enable Sleep patient portal keeps patients connected and informed at every stage.
+      </p>
+      <p>
+        Digital intake forms capture sleep history, medical questionnaires, and consent documents before the patient arrives, saving your front desk 15&ndash;20 minutes per visit. Automated appointment reminders and compliance check-ins reduce no-shows and keep treatment on track. Patients can message your care team with questions about their appliance, review their sleep test results, and track their treatment milestones&mdash;all from their phone.
+      </p>
+      <p>
+        The portal works hand-in-hand with the <a routerLink="/features" class="text-primary hover:text-primary-dark underline">Enable Sleep platform features</a> and the <a routerLink="/ai-scribe" class="text-primary hover:text-primary-dark underline">AI Medical Scribe</a>, creating a seamless experience from screening through long-term compliance monitoring. And because it's a Progressive Web App, your patients don't need to download anything from an app store&mdash;they just open a link and add it to their home screen.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Explore the Platform -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-10">Explore the Platform</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a routerLink="/features" class="group block bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all">
+        <mat-icon class="text-primary text-3xl mb-3">dashboard</mat-icon>
+        <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">All Features</h3>
+        <p class="text-sm text-gray-600">Guided workflows, billing, and compliance tools for dental sleep medicine.</p>
+      </a>
+      <a routerLink="/ai-scribe" class="group block bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all">
+        <mat-icon class="text-accent-purple text-3xl mb-3">psychology</mat-icon>
+        <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">AI Medical Scribe</h3>
+        <p class="text-sm text-gray-600">Automated clinical documentation with SOAP notes and billing codes.</p>
+      </a>
+      <a routerLink="/security" class="group block bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all">
+        <mat-icon class="text-accent-green text-3xl mb-3">shield</mat-icon>
+        <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">Security & Compliance</h3>
+        <p class="text-sm text-gray-600">HIPAA-compliant infrastructure with enterprise-grade encryption.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Related Resources -->
+<section class="py-16 px-4 bg-gray-50" appScrollAnimate>
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-10">Related Resources</h2>
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <a routerLink="/resources/when-cpap-fails-oral-appliance-pathway-patients-are-waiting-for" class="group block bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-all">
+        <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full mb-3">Removing Barriers</span>
+        <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">When CPAP Fails: The Oral Appliance Pathway</h3>
+        <p class="text-sm text-gray-600">How patient engagement drives success in oral appliance therapy.</p>
+      </a>
+      <a routerLink="/resources/how-airway-focused-orthodontics-changes-lives-and-practices" class="group block bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-all">
+        <span class="inline-block px-3 py-1 bg-accent-purple/10 text-accent-purple text-xs font-semibold rounded-full mb-3">Beauty + Medicine</span>
+        <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">How Airway-Focused Orthodontics Changes Lives</h3>
+        <p class="text-sm text-gray-600">The intersection of airway health and patient-centered care.</p>
+      </a>
     </div>
   </div>
 </section>

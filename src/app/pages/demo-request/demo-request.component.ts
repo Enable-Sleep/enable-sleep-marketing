@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DemoRequestFormComponent } from '../../components/demo-request-form/demo-request-form.component';
+import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
 import { SEO_META } from '../../data/seo-meta.data';
+import { SchemaService } from '../../services/schema.service';
 import { ScrollAnimateDirective } from '../../directives/scroll-animate.directive';
 
 @Component({
@@ -15,12 +17,13 @@ import { ScrollAnimateDirective } from '../../directives/scroll-animate.directiv
     MatIconModule,
     MatExpansionModule,
     DemoRequestFormComponent,
+    BreadcrumbComponent,
     ScrollAnimateDirective
   ],
   templateUrl: './demo-request.component.html',
   styleUrls: ['./demo-request.component.scss']
 })
-export class DemoRequestComponent implements OnInit {
+export class DemoRequestComponent implements OnInit, OnDestroy {
   faqs = [
     {
       question: 'How long is the demo?',
@@ -44,9 +47,21 @@ export class DemoRequestComponent implements OnInit {
     },
   ];
 
-  constructor(private seoService: SeoService) {}
+  constructor(
+    private seoService: SeoService,
+    private schemaService: SchemaService
+  ) {}
 
   ngOnInit(): void {
     this.seoService.updateMetaTags(SEO_META['demo']);
+    this.schemaService.setFaqSchema(this.faqs);
+    this.schemaService.setBreadcrumbSchema([
+      { name: 'Home', url: 'https://enablesleep.com' },
+      { name: 'Request a Demo' },
+    ]);
+  }
+
+  ngOnDestroy(): void {
+    this.schemaService.clearDynamicSchemas();
   }
 }

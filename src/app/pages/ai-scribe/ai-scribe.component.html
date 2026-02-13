@@ -1,6 +1,7 @@
 <!-- Hero -->
 <section class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-20 px-4">
   <div class="max-w-4xl mx-auto text-center">
+    <app-breadcrumb [items]="[{label: 'Home', path: '/'}, {label: 'AI Medical Scribe'}]" [light]="true"></app-breadcrumb>
     <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent-purple/20 border border-accent-purple/40 rounded-full mb-6">
       <mat-icon class="text-accent-purple">psychology</mat-icon>
       <span class="text-sm font-semibold text-accent-purple">AI-Powered</span>
@@ -81,6 +82,67 @@
         <span class="block text-4xl md:text-5xl font-black text-accent-purple mb-2">{{ stat.value }}</span>
         <span class="text-sm text-gray-600">{{ stat.label }}</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Clinical Specificity -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Built for Dental Sleep Medicine, Not Generic Notes</h2>
+    <div class="space-y-4 text-lg text-gray-700 leading-relaxed">
+      <p>
+        Unlike general-purpose medical scribes, Enable Sleep's AI is trained specifically for dental sleep medicine workflows. It understands the clinical terminology, screening criteria, and billing codes that matter for oral appliance therapy&mdash;from Mallampati scores and Epworth Sleepiness Scale results to ICD-10 codes like G47.33 and CPT codes like E0486.
+      </p>
+      <p>
+        The AI Scribe supports over seven distinct visit types used in dental sleep medicine: new patient consultations, sleep test reviews, impression appointments, device deliveries, adjustment visits, follow-up evaluations, and compliance checks. Each visit type has its own documentation template, ensuring that your notes meet payer requirements and medical billing standards every time.
+      </p>
+      <p>
+        Documentation integrates directly with the <a routerLink="/features" class="text-primary hover:text-primary-dark underline">Enable Sleep platform</a>, feeding SOAP notes into the patient record and triggering the next step in the workflow. Patients can review their treatment plans through the <a routerLink="/patient-portal" class="text-primary hover:text-primary-dark underline">patient portal</a>, and your billing team gets clean, coded notes ready for medical claims submission.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Explore the Platform -->
+<section class="py-16 px-4 bg-gray-50" appScrollAnimate>
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-10">Explore the Platform</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a routerLink="/features" class="group block bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all">
+        <mat-icon class="text-primary text-3xl mb-3">dashboard</mat-icon>
+        <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">All Features</h3>
+        <p class="text-sm text-gray-600">Guided workflows, billing, and compliance tools for dental sleep medicine.</p>
+      </a>
+      <a routerLink="/patient-portal" class="group block bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all">
+        <mat-icon class="text-primary text-3xl mb-3">phone_iphone</mat-icon>
+        <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">Patient Portal</h3>
+        <p class="text-sm text-gray-600">Scheduling, forms, messaging, and progress tracking for patients.</p>
+      </a>
+      <a routerLink="/security" class="group block bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all">
+        <mat-icon class="text-accent-green text-3xl mb-3">shield</mat-icon>
+        <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">Security & Compliance</h3>
+        <p class="text-sm text-gray-600">HIPAA-compliant infrastructure with enterprise-grade encryption.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Related Resources -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-10">Related Resources</h2>
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <a routerLink="/resources/ada-2017-sleep-screening-recommendation-what-it-means-for-your-practice" class="group block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-all">
+        <span class="inline-block px-3 py-1 bg-accent-green/10 text-accent-green text-xs font-semibold rounded-full mb-3">Standard of Care</span>
+        <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">The ADA's 2017 Sleep Screening Recommendation</h3>
+        <p class="text-sm text-gray-600">How the ADA standard of care drives the need for automated documentation.</p>
+      </a>
+      <a routerLink="/resources/hygienist-greatest-sleep-screening-asset" class="group block bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-all">
+        <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full mb-3">Removing Barriers</span>
+        <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">Your Hygienist Is Your Greatest Sleep Screening Asset</h3>
+        <p class="text-sm text-gray-600">How to empower your hygienist with AI-powered documentation tools.</p>
+      </a>
     </div>
   </div>
 </section>

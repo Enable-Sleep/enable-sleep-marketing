@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
+import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
+import { SchemaService } from '../../services/schema.service';
 import { RESOURCES, Resource, CATEGORIES } from '../../data/resources.data';
 
 @Component({
@@ -13,19 +15,21 @@ import { RESOURCES, Resource, CATEGORIES } from '../../data/resources.data';
     CommonModule,
     RouterModule,
     MatIconModule,
-    CtaBannerComponent
+    CtaBannerComponent,
+    BreadcrumbComponent
   ],
   templateUrl: './resource-article.component.html',
   styleUrls: ['./resource-article.component.scss']
 })
-export class ResourceArticleComponent implements OnInit {
+export class ResourceArticleComponent implements OnInit, OnDestroy {
   article: Resource | null = null;
   relatedArticles: Resource[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private seoService: SeoService
+    private seoService: SeoService,
+    private schemaService: SchemaService
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +45,25 @@ export class ResourceArticleComponent implements OnInit {
       title: `${this.article.title} - Enable Sleep`,
       description: this.article.seoDescription,
       url: `https://enablesleep.com/resources/${this.article.slug}`,
+      canonical: `https://enablesleep.com/resources/${this.article.slug}`,
+      ogType: 'article',
+      ogImage: 'https://enablesleep.com/og-image.png',
+      keywords: this.article.seoKeywords,
     });
+
+    this.schemaService.setArticleSchema({
+      title: this.article.title,
+      description: this.article.seoDescription,
+      authorName: this.article.author,
+      datePublished: this.article.date,
+      url: `https://enablesleep.com/resources/${this.article.slug}`,
+    });
+
+    this.schemaService.setBreadcrumbSchema([
+      { name: 'Home', url: 'https://enablesleep.com' },
+      { name: 'Resources', url: 'https://enablesleep.com/resources' },
+      { name: this.article.title },
+    ]);
 
     // Compute related articles
     const currentSlug = this.article.slug;
@@ -64,6 +86,10 @@ export class ResourceArticleComponent implements OnInit {
     }
 
     this.relatedArticles = related;
+  }
+
+  ngOnDestroy(): void {
+    this.schemaService.clearDynamicSchemas();
   }
 
   getCategoryLabel(category: string): string {

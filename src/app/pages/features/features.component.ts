@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, computed } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,7 +7,9 @@ import { FeatureCardComponent } from '../../components/feature-card/feature-card
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
 import { SectionHeaderComponent } from '../../components/section-header/section-header.component';
 import { ScrollAnimateDirective } from '../../directives/scroll-animate.directive';
+import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
+import { SchemaService } from '../../services/schema.service';
 import { SEO_META } from '../../data/seo-meta.data';
 import { FEATURES, Feature } from '../../data/features.data';
 import { JOURNEY_STEPS } from '../../data/journey-steps.data';
@@ -22,13 +24,14 @@ import { JOURNEY_STEPS } from '../../data/journey-steps.data';
     MatTabsModule,
     FeatureCardComponent,
     CtaBannerComponent,
+    BreadcrumbComponent,
     SectionHeaderComponent,
     ScrollAnimateDirective
   ],
   templateUrl: './features.component.html',
   styleUrls: ['./features.component.scss']
 })
-export class FeaturesComponent implements OnInit {
+export class FeaturesComponent implements OnInit, OnDestroy {
   allFeatures = FEATURES;
   journeySteps = JOURNEY_STEPS;
 
@@ -46,10 +49,21 @@ export class FeaturesComponent implements OnInit {
     return this.allFeatures.filter(f => f.personas.includes(persona as any));
   });
 
-  constructor(private seoService: SeoService) {}
+  constructor(
+    private seoService: SeoService,
+    private schemaService: SchemaService
+  ) {}
 
   ngOnInit(): void {
     this.seoService.updateMetaTags(SEO_META['features']);
+    this.schemaService.setBreadcrumbSchema([
+      { name: 'Home', url: 'https://enablesleep.com' },
+      { name: 'Features' },
+    ]);
+  }
+
+  ngOnDestroy(): void {
+    this.schemaService.clearDynamicSchemas();
   }
 
   onTabChange(index: number): void {

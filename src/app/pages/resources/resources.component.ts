@@ -1,10 +1,13 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
 import { ScrollAnimateDirective } from '../../directives/scroll-animate.directive';
+import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
+import { SchemaService } from '../../services/schema.service';
+import { SEO_META } from '../../data/seo-meta.data';
 import { RESOURCES, Resource, CATEGORIES, CategoryMeta } from '../../data/resources.data';
 
 @Component({
@@ -15,12 +18,13 @@ import { RESOURCES, Resource, CATEGORIES, CategoryMeta } from '../../data/resour
     RouterModule,
     MatIconModule,
     CtaBannerComponent,
+    BreadcrumbComponent,
     ScrollAnimateDirective
   ],
   templateUrl: './resources.component.html',
   styleUrls: ['./resources.component.scss']
 })
-export class ResourcesComponent {
+export class ResourcesComponent implements OnInit, OnDestroy {
   categories = CATEGORIES;
   activeCategory = signal<string>('all');
 
@@ -59,12 +63,21 @@ export class ResourcesComponent {
     return remaining.slice(2);
   });
 
-  constructor(private seoService: SeoService) {
-    this.seoService.updateMetaTags({
-      title: 'Resources - Enable Sleep | Dental Sleep Medicine Insights',
-      description: 'Expert insights and guides on dental sleep medicine from Dr. Joseph Zelk. Learn about screening, compliance, billing, and growing your sleep medicine practice.',
-      url: 'https://enablesleep.com/resources',
-    });
+  constructor(
+    private seoService: SeoService,
+    private schemaService: SchemaService
+  ) {}
+
+  ngOnInit(): void {
+    this.seoService.updateMetaTags(SEO_META['resources']);
+    this.schemaService.setBreadcrumbSchema([
+      { name: 'Home', url: 'https://enablesleep.com' },
+      { name: 'Resources' },
+    ]);
+  }
+
+  ngOnDestroy(): void {
+    this.schemaService.clearDynamicSchemas();
   }
 
   setCategory(slug: string): void {

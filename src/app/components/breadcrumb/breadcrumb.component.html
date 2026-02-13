@@ -1,0 +1,18 @@
+<nav aria-label="Breadcrumb" class="mb-4">
+  <ol class="flex items-center gap-1 text-sm flex-wrap"
+      [ngClass]="light ? 'text-gray-400' : 'text-gray-500'">
+    <li *ngFor="let item of items; let last = last" class="flex items-center gap-1">
+      <a *ngIf="item.path && !last"
+         [routerLink]="item.path"
+         class="hover:underline transition-colors"
+         [ngClass]="light ? 'hover:text-white' : 'hover:text-gray-900'">
+        {{ item.label }}
+      </a>
+      <span *ngIf="!item.path || last"
+            [ngClass]="last ? (light ? 'text-gray-300 font-medium' : 'text-gray-700 font-medium') : ''">
+        {{ item.label }}
+      </span>
+      <span *ngIf="!last" aria-hidden="true">/</span>
+    </li>
+  </ol>
+</nav>
