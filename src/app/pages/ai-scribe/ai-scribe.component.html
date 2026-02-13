@@ -1,0 +1,92 @@
+<!-- Hero -->
+<section class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-20 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent-purple/20 border border-accent-purple/40 rounded-full mb-6">
+      <mat-icon class="text-accent-purple">psychology</mat-icon>
+      <span class="text-sm font-semibold text-accent-purple">AI-Powered</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6">AI Medical Scribe for Dental Sleep Medicine</h1>
+    <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+      Automatically document patient visits, generate compliant SOAP notes, and create billing codes while you focus on patient care.
+    </p>
+  </div>
+</section>
+
+<!-- Video Placeholder -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-4xl mx-auto">
+    <app-screenshot-placeholder
+      aspectRatio="16/9"
+      label="AI Scribe Demo Video"
+      icon="play_circle">
+    </app-screenshot-placeholder>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-16 px-4 bg-gray-50" appScrollAnimate>
+  <div class="max-w-6xl mx-auto">
+    <app-section-header
+      icon="auto_awesome"
+      badge="How It Works"
+      title="Three Steps to Effortless Documentation"
+      subtitle="From visit start to compliant notes in minutes, not hours.">
+    </app-section-header>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div *ngFor="let item of howItWorks" class="text-center">
+        <div class="w-16 h-16 rounded-full bg-accent-purple/10 flex items-center justify-center mx-auto mb-4 relative">
+          <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-accent-purple text-white text-xs flex items-center justify-center font-bold">
+            {{ item.step }}
+          </span>
+          <mat-icon class="text-accent-purple text-3xl">{{ item.icon }}</mat-icon>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">{{ item.title }}</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sample SOAP Note -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-3xl mx-auto">
+    <app-section-header
+      icon="description"
+      badge="Sample Output"
+      title="AI-Generated SOAP Note"
+      subtitle="See what the AI Scribe produces from a typical patient consultation.">
+    </app-section-header>
+
+    <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-accent-purple to-accent-purple/80 text-white px-6 py-4 flex items-center gap-2">
+        <mat-icon>description</mat-icon>
+        <span class="font-semibold">SOAP Note &mdash; New Patient Consultation</span>
+      </div>
+      <div class="divide-y divide-gray-100">
+        <div *ngFor="let section of soapSections" class="px-6 py-4">
+          <h4 class="font-bold mb-1" [ngClass]="section.color">{{ section.label }}</h4>
+          <p class="text-sm text-gray-600 leading-relaxed">{{ section.content }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Row -->
+<section class="py-16 px-4 bg-gray-50" appScrollAnimate>
+  <div class="max-w-4xl mx-auto">
+    <div class="grid grid-cols-3 gap-6">
+      <div *ngFor="let stat of stats" class="text-center">
+        <span class="block text-4xl md:text-5xl font-black text-accent-purple mb-2">{{ stat.value }}</span>
+        <span class="text-sm text-gray-600">{{ stat.label }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<app-cta-banner
+  title="See AI Scribe in Action"
+  subtitle="Request a demo and watch the AI Medical Scribe document a live patient visit.">
+</app-cta-banner>

@@ -1,0 +1,16 @@
+<section class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-20 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-6">{{ title }}</h2>
+    <p class="text-xl text-gray-300 mb-10">{{ subtitle }}</p>
+    <a routerLink="/demo"
+       class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white text-lg font-semibold rounded-xl
+              hover:bg-primary-dark transition-all shadow-primary-lg hover:shadow-primary-lg hover:scale-105">
+      {{ buttonText }}
+      <mat-icon>arrow_forward</mat-icon>
+    </a>
+    <p class="text-sm text-gray-400 flex items-center justify-center gap-2 mt-6">
+      <mat-icon class="text-primary">verified_user</mat-icon>
+      <span>No commitment required. HIPAA-compliant.</span>
+    </p>
+  </div>
+</section>

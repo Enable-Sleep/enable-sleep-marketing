@@ -1,0 +1,20 @@
+<div class="text-center mb-12">
+  <div *ngIf="badge"
+       class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
+       [ngClass]="light
+         ? 'bg-white/10 border border-white/20'
+         : 'bg-primary/10 border border-primary/30'">
+    <mat-icon *ngIf="icon" [ngClass]="light ? 'text-primary-light' : 'text-primary'">{{ icon }}</mat-icon>
+    <span class="text-sm font-semibold" [ngClass]="light ? 'text-primary-light' : 'text-primary'">{{ badge }}</span>
+  </div>
+
+  <h2 class="text-4xl md:text-5xl font-extrabold mb-4"
+      [ngClass]="light ? 'text-white' : 'text-gray-900'">
+    {{ title }}
+  </h2>
+
+  <p *ngIf="subtitle" class="text-lg max-w-3xl mx-auto"
+     [ngClass]="light ? 'text-gray-300' : 'text-gray-600'">
+    {{ subtitle }}
+  </p>
+</div>

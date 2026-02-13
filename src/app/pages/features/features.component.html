@@ -1,0 +1,71 @@
+<!-- Hero -->
+<section class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-20 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Everything You Need for Dental Sleep Medicine</h1>
+    <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+      One platform with guided workflows, compliance tools, AI documentation, and integrated billing to run your sleep medicine practice.
+    </p>
+  </div>
+</section>
+
+<!-- Persona Tabs + Feature Grid -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-6xl mx-auto">
+    <app-section-header
+      icon="people"
+      badge="Built for Your Role"
+      title="Features Tailored to Your Needs"
+      subtitle="Select your role to see the features most relevant to you.">
+    </app-section-header>
+
+    <mat-tab-group (selectedIndexChange)="onTabChange($event)" class="persona-tabs mb-10">
+      <mat-tab *ngFor="let persona of personas">
+        <ng-template mat-tab-label>
+          <div class="flex items-center gap-2">
+            <mat-icon>{{ persona.icon }}</mat-icon>
+            <span>{{ persona.label }}</span>
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <app-feature-card
+        *ngFor="let feature of filteredFeatures()"
+        [icon]="feature.icon"
+        [title]="feature.title"
+        [description]="feature.description"
+        [accentColor]="feature.accentColor">
+      </app-feature-card>
+    </div>
+  </div>
+</section>
+
+<!-- 9-Step Journey Expanded -->
+<section class="py-16 px-4 bg-gray-50" appScrollAnimate>
+  <div class="max-w-6xl mx-auto">
+    <app-section-header
+      icon="route"
+      badge="The Patient Journey"
+      title="9 Steps from Screening to Billing"
+      subtitle="Enable Sleep guides your team through every step of the dental sleep medicine workflow.">
+    </app-section-header>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div *ngFor="let step of journeySteps"
+           class="bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
+            {{ step.number }}
+          </div>
+          <mat-icon class="text-primary">{{ step.icon }}</mat-icon>
+          <h3 class="text-lg font-bold text-gray-900">{{ step.title }}</h3>
+        </div>
+        <p class="text-sm text-gray-600 leading-relaxed">{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<app-cta-banner></app-cta-banner>

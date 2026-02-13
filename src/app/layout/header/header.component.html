@@ -1,0 +1,55 @@
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a routerLink="/" class="flex-shrink-0">
+        <img src="/assets/logos/enable-sleep-wordmark-dark.png"
+             alt="Enable Sleep"
+             class="h-8 w-auto">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a *ngFor="let link of navLinks"
+           [routerLink]="link.path"
+           routerLinkActive="text-primary font-semibold"
+           class="text-sm text-gray-700 hover:text-primary transition-colors">
+          {{ link.label }}
+        </a>
+        <a routerLink="/demo"
+           class="inline-flex items-center px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg
+                  hover:bg-primary-dark transition-colors shadow-sm hover:shadow-primary">
+          Request a Demo
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button (click)="toggleMobileMenu()"
+              class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+              [attr.aria-expanded]="mobileMenuOpen()"
+              aria-label="Toggle navigation menu">
+        <mat-icon>{{ mobileMenuOpen() ? 'close' : 'menu' }}</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="mobileMenuOpen()"
+       class="md:hidden bg-white border-t border-gray-100 shadow-lg">
+    <nav class="px-4 py-4 space-y-1">
+      <a *ngFor="let link of navLinks"
+         [routerLink]="link.path"
+         routerLinkActive="text-primary bg-primary/5"
+         class="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">
+        {{ link.label }}
+      </a>
+      <div class="pt-3 border-t border-gray-100 mt-3">
+        <a routerLink="/demo"
+           class="block w-full text-center px-4 py-3 bg-primary text-white font-semibold rounded-lg
+                  hover:bg-primary-dark transition-colors">
+          Request a Demo
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>

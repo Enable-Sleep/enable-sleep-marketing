@@ -1,0 +1,57 @@
+<!-- Hero -->
+<section class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-20 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <mat-icon class="text-6xl text-primary mb-6">shield</mat-icon>
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Security & Compliance</h1>
+    <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+      Enterprise-grade security built for healthcare. Your patient data is protected by industry-leading standards.
+    </p>
+  </div>
+</section>
+
+<!-- Compliance Badges -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div *ngFor="let badge of complianceBadges"
+           class="text-center p-8 bg-gray-50 rounded-2xl border border-gray-100">
+        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+          <mat-icon class="text-primary text-3xl">{{ badge.icon }}</mat-icon>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">{{ badge.title }}</h3>
+        <p class="text-sm text-gray-600">{{ badge.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Security Details Sections -->
+<section *ngFor="let section of securitySections; let odd = odd"
+         class="py-16 px-4"
+         [ngClass]="odd ? 'bg-white' : 'bg-gray-50'"
+         appScrollAnimate>
+  <div class="max-w-4xl mx-auto">
+    <div class="flex items-center gap-3 mb-8">
+      <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+        <mat-icon class="text-primary">{{ section.icon }}</mat-icon>
+      </div>
+      <h2 class="text-2xl font-extrabold text-gray-900">{{ section.category }}</h2>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
+      <div *ngFor="let item of section.items; let last = last"
+           class="flex flex-col sm:flex-row sm:items-center px-6 py-4"
+           [ngClass]="{ 'border-b border-gray-100': !last }">
+        <span class="font-semibold text-gray-900 sm:w-48 flex-shrink-0 mb-1 sm:mb-0">{{ item.label }}</span>
+        <span class="text-gray-600">{{ item.value }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<app-cta-banner
+  title="Security Questions?"
+  subtitle="Our team can walk you through our security infrastructure and compliance certifications in detail."
+  buttonText="Request a Security Review">
+</app-cta-banner>

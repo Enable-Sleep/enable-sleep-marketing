@@ -1,0 +1,53 @@
+<footer class="bg-gray-900 text-gray-300 py-12 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <!-- Brand -->
+      <div>
+        <img src="/assets/logos/enable-sleep-wordmark-white.png"
+             alt="Enable Sleep"
+             class="h-10 w-auto mb-4">
+        <p class="text-gray-400 text-sm">Empowering dentists to close the sleep apnea diagnosis gap</p>
+      </div>
+
+      <!-- Product Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Product</h4>
+        <ul class="space-y-2">
+          <li *ngFor="let link of productLinks">
+            <a [routerLink]="link.path"
+               class="text-sm text-gray-400 hover:text-primary transition-colors">
+              {{ link.label }}
+            </a>
+          </li>
+          <li>
+            <a routerLink="/demo"
+               class="text-sm text-primary hover:text-primary-light transition-colors font-medium">
+              Request a Demo
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Company Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Company</h4>
+        <ul class="space-y-2">
+          <li *ngFor="let link of companyLinks">
+            <a [routerLink]="link.path"
+               class="text-sm text-gray-400 hover:text-primary transition-colors">
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center border-t border-gray-700 pt-8">
+      <p class="flex items-center justify-center gap-2 text-sm mb-2">
+        <mat-icon class="text-primary">lock</mat-icon>
+        <span>HIPAA-compliant &amp; secure</span>
+      </p>
+      <p class="text-gray-500 text-sm">&copy; {{ currentYear }} Enable Sleep. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

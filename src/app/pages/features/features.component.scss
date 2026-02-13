@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+::ng-deep .persona-tabs {
+  .mat-mdc-tab-header {
+    border-bottom: 2px solid #e2e8f0;
+  }
+}

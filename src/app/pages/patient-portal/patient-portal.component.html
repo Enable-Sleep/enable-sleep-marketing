@@ -1,0 +1,89 @@
+<!-- Hero -->
+<section class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-20 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6">A Better Experience for Your Patients</h1>
+    <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+      A modern patient portal that works on any device. Scheduling, forms, messaging, and progress tracking in one place.
+    </p>
+  </div>
+</section>
+
+<!-- Phone Mockup + Features -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="flex justify-center">
+        <div class="w-64">
+          <app-screenshot-placeholder
+            aspectRatio="9/16"
+            label="Patient Portal"
+            icon="phone_iphone">
+          </app-screenshot-placeholder>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-8">Everything patients need at their fingertips</h2>
+        <div class="space-y-6">
+          <div *ngFor="let feature of portalFeatures" class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+              <mat-icon class="text-primary">{{ feature.icon }}</mat-icon>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-900 mb-1">{{ feature.title }}</h3>
+              <p class="text-sm text-gray-600">{{ feature.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PWA Install Flow -->
+<section class="py-16 px-4 bg-gray-50" appScrollAnimate>
+  <div class="max-w-4xl mx-auto">
+    <app-section-header
+      icon="install_mobile"
+      badge="Progressive Web App"
+      title="No App Store Required"
+      subtitle="Patients install the portal directly from their browser in seconds.">
+    </app-section-header>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div *ngFor="let step of pwaSteps" class="text-center">
+        <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-4 font-bold text-lg">
+          {{ step.step }}
+        </div>
+        <h3 class="font-bold text-gray-900 mb-2">{{ step.title }}</h3>
+        <p class="text-sm text-gray-600">{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Practice Benefits -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-4xl mx-auto">
+    <app-section-header
+      icon="business"
+      badge="For Your Practice"
+      title="Reduce Admin Burden"
+      subtitle="The patient portal doesn't just help patients\u2014it streamlines your operations.">
+    </app-section-header>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div *ngFor="let benefit of practiceBenefits"
+           class="flex items-start gap-4 p-6 bg-gray-50 rounded-xl border border-gray-100">
+        <mat-icon class="text-accent-green flex-shrink-0">{{ benefit.icon }}</mat-icon>
+        <span class="text-gray-700">{{ benefit.text }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<app-cta-banner
+  title="See the Patient Portal in Action"
+  subtitle="Request a demo and explore how the portal improves both patient experience and practice efficiency.">
+</app-cta-banner>

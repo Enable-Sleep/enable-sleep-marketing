@@ -1,0 +1,79 @@
+<!-- Hero -->
+<section class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-16 px-4">
+  <div class="max-w-6xl mx-auto text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">See Enable Sleep in Action</h1>
+    <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+      Get a personalized walkthrough of how Enable Sleep can transform your dental sleep medicine practice.
+    </p>
+  </div>
+</section>
+
+<!-- Two-Column Form Section -->
+<section class="py-16 px-4 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Left: Sales Messaging -->
+      <div appScrollAnimate>
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-6">
+          Your practice could be treating sleep apnea patients within weeks.
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Schedule a 30-minute demo to see how Enable Sleep gives you everything you need to launch or grow your dental sleep medicine program.
+        </p>
+
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <mat-icon class="text-accent-green flex-shrink-0">check_circle</mat-icon>
+            <span class="text-gray-700">See guided workflows for every patient visit type</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <mat-icon class="text-accent-green flex-shrink-0">check_circle</mat-icon>
+            <span class="text-gray-700">Watch the AI Medical Scribe document a visit in real time</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <mat-icon class="text-accent-green flex-shrink-0">check_circle</mat-icon>
+            <span class="text-gray-700">Explore the patient portal and digital intake forms</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <mat-icon class="text-accent-green flex-shrink-0">check_circle</mat-icon>
+            <span class="text-gray-700">Learn how medical billing is handled automatically</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <mat-icon class="text-accent-green flex-shrink-0">check_circle</mat-icon>
+            <span class="text-gray-700">Get answers to your compliance and security questions</span>
+          </li>
+        </ul>
+
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+          <p class="text-sm text-gray-600 flex items-center gap-2">
+            <mat-icon class="text-primary text-base">schedule</mat-icon>
+            <span>Our team will reach out within 1 business day to schedule your demo.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div appScrollAnimate>
+        <app-demo-request-form></app-demo-request-form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 px-4 bg-gray-50">
+  <div class="max-w-3xl mx-auto" appScrollAnimate>
+    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-10">Frequently Asked Questions</h2>
+
+    <mat-accordion class="faq-accordion">
+      <mat-expansion-panel *ngFor="let faq of faqs" class="mb-3">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="font-semibold text-gray-900">
+            {{ faq.question }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="text-gray-600 leading-relaxed">{{ faq.answer }}</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</section>

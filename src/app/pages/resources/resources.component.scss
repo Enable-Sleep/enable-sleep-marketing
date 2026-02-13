@@ -1,0 +1,69 @@
+:host {
+  display: block;
+}
+
+// Filter pills
+.filter-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.filter-pill {
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+
+  &--active {
+    background-color: var(--mat-sys-primary, #f97316);
+    color: white;
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+  }
+
+  &--inactive {
+    background-color: white;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+
+    &:hover {
+      background-color: #f3f4f6;
+      color: #1f2937;
+    }
+  }
+}
+
+// Featured card
+.featured-card {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--mat-sys-primary, #f97316), #fb923c);
+    border-radius: 16px 16px 0 0;
+    z-index: 1;
+  }
+}
+
+// Smooth transition for filter changes
+section {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
