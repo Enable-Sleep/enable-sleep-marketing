@@ -13,4 +13,8 @@ export class ScreenshotPlaceholderComponent {
   @Input() aspectRatio: '16/9' | '4/3' | '9/16' | '1/1' = '16/9';
   @Input() label = 'Product Screenshot';
   @Input() icon = 'image';
+  @Input() imageSrc?: string;
+  @Input() imageAlt?: string;
+
+  imageError = false;
 }

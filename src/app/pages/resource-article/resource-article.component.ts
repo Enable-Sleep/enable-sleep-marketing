@@ -59,6 +59,14 @@ export class ResourceArticleComponent implements OnInit, OnDestroy {
       url: `https://enablesleep.com/resources/${this.article.slug}`,
     });
 
+    if (this.article.howToSteps?.length) {
+      this.schemaService.setHowToSchema({
+        name: this.article.title,
+        description: this.article.seoDescription,
+        steps: this.article.howToSteps,
+      });
+    }
+
     this.schemaService.setBreadcrumbSchema([
       { name: 'Home', url: 'https://enablesleep.com' },
       { name: 'Resources', url: 'https://enablesleep.com/resources' },
