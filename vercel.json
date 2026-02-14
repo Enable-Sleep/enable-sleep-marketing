@@ -1,7 +1,4 @@
 {
-  "buildCommand": "npm run vercel-build",
-  "outputDirectory": "dist/enable-sleep-marketing",
-  "framework": null,
   "headers": [
     {
       "source": "/(.*)",
