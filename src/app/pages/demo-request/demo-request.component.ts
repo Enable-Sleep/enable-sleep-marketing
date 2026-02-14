@@ -45,6 +45,18 @@ export class DemoRequestComponent implements OnInit, OnDestroy {
       question: 'How soon can I get started after the demo?',
       answer: 'We can have most practices up and running within a week of signing up. Our onboarding team handles the setup so you can focus on patients.'
     },
+    {
+      question: 'Do you offer training as part of onboarding?',
+      answer: 'Yes, every new practice receives comprehensive onboarding training for the entire team. This includes platform walkthroughs, workflow setup, billing configuration, and best practices for dental sleep medicine documentation.'
+    },
+    {
+      question: 'Is Enable Sleep suitable for practices new to dental sleep medicine?',
+      answer: 'Absolutely. Enable Sleep is designed to help practices at every stage — from those just starting to explore dental sleep medicine to established sleep practices looking to scale. The guided workflows walk your team through every step of the patient journey.'
+    },
+    {
+      question: 'What kind of support is available after onboarding?',
+      answer: 'Enable Sleep provides ongoing support including live chat, email support, and access to our dental sleep medicine resource library. Our team includes dental sleep medicine experts who understand your clinical workflows and can help optimize your practice.'
+    },
   ];
 
   constructor(

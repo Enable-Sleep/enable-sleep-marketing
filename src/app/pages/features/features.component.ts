@@ -42,6 +42,29 @@ export class FeaturesComponent implements OnInit, OnDestroy {
     { key: 'patient' as const, label: 'Patients', icon: 'person' },
   ];
 
+  faqs: { question: string; answer: string }[] = [
+    {
+      question: 'What features does dental sleep medicine software need?',
+      answer: 'Dental sleep medicine software should include guided clinical workflows, integrated medical billing (E0486/K1027), AI-powered documentation, a patient portal, sleep physician collaboration tools, home sleep test management, compliance tracking, and HIPAA-compliant security. Enable Sleep includes all of these in a single platform.'
+    },
+    {
+      question: 'How does Enable Sleep differ from general dental practice management software?',
+      answer: 'Unlike general dental PMS, Enable Sleep is purpose-built for dental sleep medicine with medical billing (not dental billing), sleep physician referral networks, oral appliance therapy workflows, and AI documentation specifically trained on sleep medicine visit types.'
+    },
+    {
+      question: 'Can Enable Sleep handle both dental and medical billing?',
+      answer: 'Enable Sleep focuses on the medical billing side of dental sleep medicine, which is the primary revenue pathway for oral appliance therapy. The platform generates correct HCPCS codes (E0486, K1027) and ICD-10 codes (G47.33) automatically from your clinical documentation.'
+    },
+    {
+      question: 'Does Enable Sleep support multi-location dental sleep practices?',
+      answer: 'Yes, Enable Sleep is designed to scale with your practice. The cloud-based platform allows you to manage multiple locations, providers, and patient workflows from a single dashboard with role-based access controls.'
+    },
+    {
+      question: 'What compliance tools does Enable Sleep provide?',
+      answer: 'Enable Sleep includes automated compliance tracking for Medicare and commercial insurance requirements, documentation completeness checks, HIPAA audit logs, treatment progress monitoring, and follow-up scheduling to maintain compliance with payer requirements.'
+    },
+  ];
+
   activePersona = signal<string>('dentist');
 
   filteredFeatures = computed(() => {
@@ -60,6 +83,13 @@ export class FeaturesComponent implements OnInit, OnDestroy {
       { name: 'Home', url: 'https://enablesleep.com' },
       { name: 'Features' },
     ]);
+    this.schemaService.setFaqSchema(this.faqs);
+    this.schemaService.setServiceSchema({
+      name: 'Enable Sleep Dental Sleep Medicine Platform',
+      description: 'Complete dental sleep medicine software with guided workflows, AI documentation, medical billing, and patient portal.',
+      provider: 'Enable Sleep',
+      serviceType: 'Dental Sleep Medicine Software',
+    });
   }
 
   ngOnDestroy(): void {

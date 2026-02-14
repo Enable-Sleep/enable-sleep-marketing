@@ -22,6 +22,7 @@ export class FooterComponent {
 
   companyLinks = [
     { path: '/resources', label: 'Resources' },
+    { path: '/faq', label: 'FAQ' },
     { path: '/privacy', label: 'Privacy Policy' },
     { path: '/terms', label: 'Terms of Service' },
   ];

@@ -21,6 +21,7 @@ export class HeaderComponent {
     { path: '/patient-portal', label: 'Patient Portal' },
     { path: '/security', label: 'Security' },
     { path: '/resources', label: 'Resources' },
+    { path: '/faq', label: 'FAQ' },
   ];
 
   constructor(private router: Router) {

@@ -147,7 +147,9 @@
         <app-screenshot-placeholder
           aspectRatio="4/3"
           label="AI Scribe Interface"
-          icon="psychology">
+          icon="psychology"
+          imageSrc="/assets/screenshots/ai-scribe-interface.png"
+          imageAlt="Enable Sleep AI Medical Scribe showing live transcript, SOAP note, and compliance checklist">
         </app-screenshot-placeholder>
       </div>
     </div>
@@ -188,6 +190,19 @@
       <p>
         Patients stay engaged through a modern <a routerLink="/patient-portal" class="text-primary hover:text-primary-dark underline">patient portal</a> that works on any device&mdash;no app store required. And with <a routerLink="/security" class="text-primary hover:text-primary-dark underline">HIPAA-compliant security</a> built into every layer, your data is protected by enterprise-grade encryption and access controls.
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-10">Dental Sleep Medicine: Frequently Asked Questions</h2>
+    <div class="space-y-6">
+      <div *ngFor="let faq of faqs" class="border-b border-gray-100 pb-6">
+        <h3 class="text-lg font-bold text-gray-900 mb-2">{{ faq.question }}</h3>
+        <p class="text-gray-600 leading-relaxed">{{ faq.answer }}</p>
+      </div>
     </div>
   </div>
 </section>

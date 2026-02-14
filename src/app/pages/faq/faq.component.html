@@ -1,0 +1,66 @@
+<!-- Hero -->
+<section class="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-16 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <app-breadcrumb [items]="[{label: 'Home', path: '/'}, {label: 'FAQ'}]" [light]="true"></app-breadcrumb>
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Frequently Asked Questions</h1>
+    <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+      Get answers about dental sleep medicine, our platform, billing, and more.
+    </p>
+  </div>
+</section>
+
+<!-- Category Filters -->
+<section class="py-6 px-4 bg-white border-b border-gray-100 sticky top-0 z-10">
+  <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-2">
+    <button
+      (click)="setCategory('all')"
+      class="px-4 py-2 rounded-full text-sm font-semibold transition-all"
+      [class.bg-primary]="activeCategory() === 'all'"
+      [class.text-white]="activeCategory() === 'all'"
+      [class.bg-gray-100]="activeCategory() !== 'all'"
+      [class.text-gray-700]="activeCategory() !== 'all'"
+      [class.hover:bg-gray-200]="activeCategory() !== 'all'">
+      All Questions
+    </button>
+    <button
+      *ngFor="let cat of categories"
+      (click)="setCategory(cat.id)"
+      class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all"
+      [class.bg-primary]="activeCategory() === cat.id"
+      [class.text-white]="activeCategory() === cat.id"
+      [class.bg-gray-100]="activeCategory() !== cat.id"
+      [class.text-gray-700]="activeCategory() !== cat.id"
+      [class.hover:bg-gray-200]="activeCategory() !== cat.id">
+      <mat-icon class="text-base">{{ cat.icon }}</mat-icon>
+      {{ cat.label }}
+    </button>
+  </div>
+</section>
+
+<!-- FAQ Categories -->
+<section class="py-16 px-4 bg-white">
+  <div class="max-w-3xl mx-auto">
+    <div *ngFor="let category of filteredCategories()" class="mb-12" appScrollAnimate>
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center">
+          <mat-icon class="text-primary">{{ category.icon }}</mat-icon>
+        </div>
+        <h2 class="text-2xl font-extrabold text-gray-900">{{ category.label }}</h2>
+      </div>
+
+      <mat-accordion class="faq-accordion">
+        <mat-expansion-panel *ngFor="let faq of category.questions" class="mb-3">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3 class="font-semibold text-gray-900">{{ faq.question }}</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p class="text-gray-600 leading-relaxed">{{ faq.answer }}</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<app-cta-banner></app-cta-banner>

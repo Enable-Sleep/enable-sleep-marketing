@@ -55,6 +55,25 @@ export class AiScribeComponent implements OnInit, OnDestroy {
     { value: 'Auto', label: 'Billing code generation' },
   ];
 
+  faqs: { question: string; answer: string }[] = [
+    {
+      question: 'How does AI scribing work for dental sleep medicine?',
+      answer: 'Enable Sleep\'s AI Medical Scribe listens during patient visits and automatically generates compliant SOAP notes with ICD-10 and CPT/HCPCS billing codes. The AI is specifically trained on dental sleep medicine visit types including screenings, consultations, impressions, deliveries, and follow-ups.'
+    },
+    {
+      question: 'Is the AI scribe accurate for dental sleep medicine documentation?',
+      answer: 'The AI scribe is trained specifically on dental sleep medicine terminology and workflows. It captures clinical findings, patient history, and treatment discussions, then generates structured SOAP notes that include the correct diagnostic codes (G47.33) and procedure codes (E0486, K1027) for each visit type.'
+    },
+    {
+      question: 'How much time does the AI scribe save per patient visit?',
+      answer: 'Practices using Enable Sleep\'s AI Medical Scribe report approximately 85% reduction in documentation time. Instead of spending 10-15 minutes writing notes after each visit, clinicians review and approve an AI-generated note in 1-2 minutes.'
+    },
+    {
+      question: 'Does the AI scribe work for all dental sleep medicine visit types?',
+      answer: 'Yes, the AI scribe supports 7+ visit types common in dental sleep medicine: initial screenings, sleep consultations, impression appointments, device deliveries, titration visits, follow-up checks, and compliance reviews. Each visit type has its own documentation template and billing code mappings.'
+    },
+  ];
+
   soapSections = [
     { label: 'Subjective', color: 'text-accent-purple', content: 'Patient reports persistent snoring and daytime fatigue. Epworth Sleepiness Scale score: 14/24. Bed partner confirms witnessed apneas.' },
     { label: 'Objective', color: 'text-primary', content: 'Mallampati Class III. BMI 28.4. Neck circumference 16.5". Mandibular range of motion: 42mm. No TMJ clicking or crepitus.' },
@@ -73,6 +92,18 @@ export class AiScribeComponent implements OnInit, OnDestroy {
       { name: 'Home', url: 'https://enablesleep.com' },
       { name: 'AI Medical Scribe' },
     ]);
+    this.schemaService.setFaqSchema(this.faqs);
+    this.schemaService.setServiceSchema({
+      name: 'Enable Sleep AI Medical Scribe',
+      description: 'AI-powered clinical documentation for dental sleep medicine that automatically generates SOAP notes and billing codes from patient visits.',
+      provider: 'Enable Sleep',
+      serviceType: 'AI Medical Documentation',
+    });
+    this.schemaService.setHowToSchema({
+      name: 'How to Use AI Scribing for Dental Sleep Medicine',
+      description: 'Three-step process for using Enable Sleep\'s AI Medical Scribe during dental sleep medicine patient visits.',
+      steps: this.howItWorks.map(step => `${step.title}: ${step.description}`),
+    });
   }
 
   ngOnDestroy(): void {

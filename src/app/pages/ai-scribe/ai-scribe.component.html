@@ -19,7 +19,9 @@
     <app-screenshot-placeholder
       aspectRatio="16/9"
       label="AI Scribe Demo Video"
-      icon="play_circle">
+      icon="play_circle"
+      imageSrc="/assets/screenshots/ai-scribe-demo.png"
+      imageAlt="Enable Sleep AI Medical Scribe session with SOAP note, transcript, and clinical checklist">
     </app-screenshot-placeholder>
   </div>
 </section>
@@ -143,6 +145,19 @@
         <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">Your Hygienist Is Your Greatest Sleep Screening Asset</h3>
         <p class="text-sm text-gray-600">How to empower your hygienist with AI-powered documentation tools.</p>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 px-4 bg-gray-50" appScrollAnimate>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-10">AI Scribe: Frequently Asked Questions</h2>
+    <div class="space-y-6">
+      <div *ngFor="let faq of faqs" class="border-b border-gray-100 pb-6">
+        <h3 class="text-lg font-bold text-gray-900 mb-2">{{ faq.question }}</h3>
+        <p class="text-gray-600 leading-relaxed">{{ faq.answer }}</p>
+      </div>
     </div>
   </div>
 </section>

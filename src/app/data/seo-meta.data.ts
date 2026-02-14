@@ -10,7 +10,7 @@ export const SEO_META: Record<string, SeoConfig> = {
     canonical: 'https://enablesleep.com',
     ogImage: OG_IMAGE,
     ogType: 'website',
-    keywords: 'dental sleep medicine, oral appliance therapy, sleep apnea, dental practice management, CPAP alternative',
+    keywords: 'dental sleep medicine software, dental sleep medicine EHR, oral appliance therapy software, sleep apnea practice management, CPAP alternative, dental sleep platform, sleep medicine for dentists',
   },
   features: {
     title: 'Features | Enable Sleep Platform',
@@ -19,7 +19,7 @@ export const SEO_META: Record<string, SeoConfig> = {
     canonical: 'https://enablesleep.com/features',
     ogImage: OG_IMAGE,
     ogType: 'website',
-    keywords: 'dental sleep medicine software, practice management features, medical billing, guided workflows, sleep apnea treatment',
+    keywords: 'dental sleep medicine billing software, sleep apnea screening software, dental sleep compliance, guided clinical workflows, dental sleep practice management, sleep medicine EHR features',
   },
   aiScribe: {
     title: 'AI Medical Scribe | Enable Sleep',
@@ -28,7 +28,7 @@ export const SEO_META: Record<string, SeoConfig> = {
     canonical: 'https://enablesleep.com/ai-scribe',
     ogImage: OG_IMAGE,
     ogType: 'website',
-    keywords: 'AI medical scribe, dental documentation, SOAP notes, automated billing codes, clinical documentation',
+    keywords: 'AI scribe dental sleep medicine, automated sleep medicine documentation, AI SOAP notes dentist, dental sleep AI documentation, voice-to-note dental sleep, clinical documentation automation',
   },
   patientPortal: {
     title: 'Patient Portal | Enable Sleep',
@@ -37,7 +37,7 @@ export const SEO_META: Record<string, SeoConfig> = {
     canonical: 'https://enablesleep.com/patient-portal',
     ogImage: OG_IMAGE,
     ogType: 'website',
-    keywords: 'patient portal, dental sleep medicine, digital forms, appointment scheduling, HIPAA compliant',
+    keywords: 'dental sleep medicine patient portal, sleep apnea patient engagement, digital intake forms sleep medicine, patient compliance tracking, PWA patient portal dental',
   },
   security: {
     title: 'HIPAA Security & Compliance | Enable Sleep',
@@ -46,7 +46,7 @@ export const SEO_META: Record<string, SeoConfig> = {
     canonical: 'https://enablesleep.com/security',
     ogImage: OG_IMAGE,
     ogType: 'website',
-    keywords: 'HIPAA compliance, healthcare security, SOC 2, AES-256 encryption, dental data protection',
+    keywords: 'HIPAA dental sleep medicine, secure dental sleep platform, healthcare data encryption, SOC 2 dental software, HIPAA compliant sleep medicine software',
   },
   demo: {
     title: 'Request a Demo | Enable Sleep',
@@ -55,7 +55,7 @@ export const SEO_META: Record<string, SeoConfig> = {
     canonical: 'https://enablesleep.com/demo',
     ogImage: OG_IMAGE,
     ogType: 'website',
-    keywords: 'dental sleep medicine demo, Enable Sleep demo, practice consultation, sleep medicine platform',
+    keywords: 'dental sleep medicine software demo, Enable Sleep demo, dental sleep platform trial, sleep medicine software walkthrough',
   },
   resources: {
     title: 'Resources | Dental Sleep Medicine Guides',
@@ -64,7 +64,7 @@ export const SEO_META: Record<string, SeoConfig> = {
     canonical: 'https://enablesleep.com/resources',
     ogImage: OG_IMAGE,
     ogType: 'website',
-    keywords: 'dental sleep medicine resources, sleep apnea education, Dr. Joseph Zelk, dentist training, oral appliance therapy guides',
+    keywords: 'dental sleep medicine guides, oral appliance therapy education, dental sleep billing guides, sleep medicine practice resources, Dr. Joseph Zelk dental sleep',
   },
   privacy: {
     title: 'Privacy Policy | Enable Sleep',
@@ -83,5 +83,14 @@ export const SEO_META: Record<string, SeoConfig> = {
     ogImage: OG_IMAGE,
     ogType: 'website',
     keywords: 'terms of service, service agreement, dental software terms',
+  },
+  faq: {
+    title: 'FAQ | Dental Sleep Medicine Questions Answered | Enable Sleep',
+    description: 'Get answers to frequently asked questions about dental sleep medicine software, billing codes (E0486, K1027), HIPAA compliance, AI scribing, and starting a sleep medicine practice.',
+    url: 'https://enablesleep.com/faq',
+    canonical: 'https://enablesleep.com/faq',
+    ogImage: OG_IMAGE,
+    ogType: 'website',
+    keywords: 'dental sleep medicine FAQ, oral appliance therapy questions, dental sleep billing codes, E0486, K1027, dental sleep medicine software questions, HIPAA dental sleep',
   },
 };

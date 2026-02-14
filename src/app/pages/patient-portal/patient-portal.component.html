@@ -18,7 +18,9 @@
           <app-screenshot-placeholder
             aspectRatio="9/16"
             label="Patient Portal"
-            icon="phone_iphone">
+            icon="phone_iphone"
+            imageSrc="/assets/screenshots/patient-portal-mobile.png"
+            imageAlt="Enable Sleep patient portal showing treatment journey progress tracker on mobile">
           </app-screenshot-placeholder>
         </div>
       </div>
@@ -140,6 +142,19 @@
         <h3 class="font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">How Airway-Focused Orthodontics Changes Lives</h3>
         <p class="text-sm text-gray-600">The intersection of airway health and patient-centered care.</p>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 px-4 bg-white" appScrollAnimate>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-10">Patient Portal: Frequently Asked Questions</h2>
+    <div class="space-y-6">
+      <div *ngFor="let faq of faqs" class="border-b border-gray-100 pb-6">
+        <h3 class="text-lg font-bold text-gray-900 mb-2">{{ faq.question }}</h3>
+        <p class="text-gray-600 leading-relaxed">{{ faq.answer }}</p>
+      </div>
     </div>
   </div>
 </section>

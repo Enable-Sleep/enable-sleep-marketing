@@ -57,6 +57,25 @@ export class PatientPortalComponent implements OnInit, OnDestroy {
     { step: 3, title: 'Access Anytime', description: 'The portal works like a native app with offline support and push notifications.' },
   ];
 
+  faqs: { question: string; answer: string }[] = [
+    {
+      question: 'What can patients do through the Enable Sleep patient portal?',
+      answer: 'Patients can complete digital intake forms, view their treatment progress, communicate securely with the care team, access appointment details, and track their oral appliance therapy compliance — all from any device through the progressive web app (PWA).'
+    },
+    {
+      question: 'Is the patient portal available on mobile devices?',
+      answer: 'Yes, the Enable Sleep patient portal is built as a progressive web app (PWA) that works on any device — smartphones, tablets, and desktop computers. Patients can install it on their home screen for quick access without downloading from an app store.'
+    },
+    {
+      question: 'How does the patient portal improve treatment compliance?',
+      answer: 'The portal provides patients with real-time visibility into their treatment journey, sends automated reminders for follow-up appointments, and allows them to log their nightly appliance usage. This transparency and engagement helps patients stay committed to their oral appliance therapy.'
+    },
+    {
+      question: 'Is patient data secure in the portal?',
+      answer: 'Absolutely. The Enable Sleep patient portal is fully HIPAA-compliant with AES-256 encryption for data at rest and in transit, role-based access controls, and comprehensive audit logging. All patient data is protected with the same enterprise-grade security as the main platform.'
+    },
+  ];
+
   practiceBenefits = [
     { icon: 'schedule', text: 'Reduce front desk phone calls by 40% with online scheduling' },
     { icon: 'edit_off', text: 'Eliminate paper intake forms and manual data entry' },
@@ -75,6 +94,13 @@ export class PatientPortalComponent implements OnInit, OnDestroy {
       { name: 'Home', url: 'https://enablesleep.com' },
       { name: 'Patient Portal' },
     ]);
+    this.schemaService.setFaqSchema(this.faqs);
+    this.schemaService.setServiceSchema({
+      name: 'Enable Sleep Patient Portal',
+      description: 'HIPAA-compliant patient portal for dental sleep medicine with digital forms, treatment tracking, secure messaging, and PWA access on any device.',
+      provider: 'Enable Sleep',
+      serviceType: 'Patient Portal',
+    });
   }
 
   ngOnDestroy(): void {

@@ -20,6 +20,28 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface ServiceSchema {
+  name: string;
+  description: string;
+  provider: string;
+  serviceType: string;
+}
+
+export interface PersonSchema {
+  name: string;
+  jobTitle: string;
+  description: string;
+  affiliation: string;
+  knowsAbout: string[];
+  url: string;
+}
+
+export interface HowToSchema {
+  name: string;
+  description: string;
+  steps: string[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -100,6 +122,66 @@ export class SchemaService {
         'name': item.name,
         ...(item.url ? { 'item': item.url } : {})
       }))
+    });
+  }
+
+  setServiceSchema(service: ServiceSchema): void {
+    this.addSchema({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': service.name,
+      'description': service.description,
+      'provider': {
+        '@type': 'Organization',
+        'name': service.provider,
+        'url': 'https://enablesleep.com'
+      },
+      'serviceType': service.serviceType
+    });
+  }
+
+  setPersonSchema(person: PersonSchema): void {
+    this.addSchema({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      'name': person.name,
+      'jobTitle': person.jobTitle,
+      'description': person.description,
+      'affiliation': {
+        '@type': 'Organization',
+        'name': person.affiliation,
+        'url': 'https://enablesleep.com'
+      },
+      'knowsAbout': person.knowsAbout,
+      'url': person.url
+    });
+  }
+
+  setHowToSchema(howTo: HowToSchema): void {
+    this.addSchema({
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      'name': howTo.name,
+      'description': howTo.description,
+      'step': howTo.steps.map((step, index) => ({
+        '@type': 'HowToStep',
+        'position': index + 1,
+        'text': step
+      }))
+    });
+  }
+
+  setWebSiteSchema(): void {
+    this.addSchema({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      'name': 'Enable Sleep',
+      'url': 'https://enablesleep.com',
+      'potentialAction': {
+        '@type': 'SearchAction',
+        'target': 'https://enablesleep.com/resources?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
     });
   }
 }
