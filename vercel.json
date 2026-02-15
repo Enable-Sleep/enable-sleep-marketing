@@ -1,4 +1,10 @@
 {
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist/enable-sleep-marketing/browser",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
