@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { FeatureCardComponent } from '../../components/feature-card/feature-card.component';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
 import { SectionHeaderComponent } from '../../components/section-header/section-header.component';
+import { ExplorePlatformComponent } from '../../components/explore-platform/explore-platform.component';
+import { CalloutBoxComponent } from '../../components/callout-box/callout-box.component';
 import { ScrollAnimateDirective } from '../../directives/scroll-animate.directive';
 import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
@@ -22,10 +25,13 @@ import { JOURNEY_STEPS } from '../../data/journey-steps.data';
     RouterModule,
     MatIconModule,
     MatTabsModule,
+    MatExpansionModule,
     FeatureCardComponent,
     CtaBannerComponent,
     BreadcrumbComponent,
     SectionHeaderComponent,
+    ExplorePlatformComponent,
+    CalloutBoxComponent,
     ScrollAnimateDirective
   ],
   templateUrl: './features.component.html',

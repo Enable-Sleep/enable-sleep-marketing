@@ -2,7 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
+import { ExplorePlatformComponent } from '../../components/explore-platform/explore-platform.component';
+import { CalloutBoxComponent } from '../../components/callout-box/callout-box.component';
 import { ScrollAnimateDirective } from '../../directives/scroll-animate.directive';
 import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
@@ -23,8 +26,11 @@ import {
     CommonModule,
     RouterModule,
     MatIconModule,
+    MatExpansionModule,
     CtaBannerComponent,
     BreadcrumbComponent,
+    ExplorePlatformComponent,
+    CalloutBoxComponent,
     ScrollAnimateDirective
   ],
   templateUrl: './security.component.html',

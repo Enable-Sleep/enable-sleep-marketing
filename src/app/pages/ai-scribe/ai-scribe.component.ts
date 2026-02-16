@@ -2,9 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
 import { ScreenshotPlaceholderComponent } from '../../components/screenshot-placeholder/screenshot-placeholder.component';
 import { SectionHeaderComponent } from '../../components/section-header/section-header.component';
+import { ExplorePlatformComponent } from '../../components/explore-platform/explore-platform.component';
+import { StatsBarComponent } from '../../components/stats-bar/stats-bar.component';
 import { ScrollAnimateDirective } from '../../directives/scroll-animate.directive';
 import { BreadcrumbComponent } from '../../components/breadcrumb/breadcrumb.component';
 import { SeoService } from '../../services/seo.service';
@@ -18,10 +21,13 @@ import { SEO_META } from '../../data/seo-meta.data';
     CommonModule,
     RouterModule,
     MatIconModule,
+    MatExpansionModule,
     CtaBannerComponent,
     BreadcrumbComponent,
     ScreenshotPlaceholderComponent,
     SectionHeaderComponent,
+    ExplorePlatformComponent,
+    StatsBarComponent,
     ScrollAnimateDirective
   ],
   templateUrl: './ai-scribe.component.html',

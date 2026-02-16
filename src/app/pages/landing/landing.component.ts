@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { FeatureCardComponent } from '../../components/feature-card/feature-card.component';
 import { CtaBannerComponent } from '../../components/cta-banner/cta-banner.component';
 import { ScreenshotPlaceholderComponent } from '../../components/screenshot-placeholder/screenshot-placeholder.component';
 import { SectionHeaderComponent } from '../../components/section-header/section-header.component';
+import { StatsBarComponent } from '../../components/stats-bar/stats-bar.component';
+import { CalloutBoxComponent } from '../../components/callout-box/callout-box.component';
 import { ScrollAnimateDirective } from '../../directives/scroll-animate.directive';
 import { SeoService } from '../../services/seo.service';
 import { SchemaService } from '../../services/schema.service';
@@ -22,10 +25,13 @@ import { JOURNEY_STEPS } from '../../data/journey-steps.data';
     RouterModule,
     MatIconModule,
     MatButtonModule,
+    MatExpansionModule,
     FeatureCardComponent,
     CtaBannerComponent,
     ScreenshotPlaceholderComponent,
     SectionHeaderComponent,
+    StatsBarComponent,
+    CalloutBoxComponent,
     ScrollAnimateDirective
   ],
   templateUrl: './landing.component.html',
