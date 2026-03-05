@@ -10,5 +10,5 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./terms.component.scss']
 })
 export class TermsComponent {
-  lastUpdated = 'January 9, 2025';
+  lastUpdated = 'March 5, 2026';
 }
