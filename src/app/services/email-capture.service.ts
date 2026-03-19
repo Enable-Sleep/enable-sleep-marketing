@@ -20,7 +20,7 @@ export interface WaitlistResponse {
   providedIn: 'root'
 })
 export class EmailCaptureService {
-  private apiUrl = '/api/submit-email';
+  private apiUrl = 'https://api.enablesleep.com/public/waitlist';
 
   constructor(private http: HttpClient) {}
 
